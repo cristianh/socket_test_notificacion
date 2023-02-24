@@ -6,18 +6,20 @@ const path = require('path');
 
 const app = express();
 
-app.use(function(req, res, next) {
+/* app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "*");
     res.header("Access-Control-Allow-Headers", "*");
     next();
-});
+}); */
 
-let server = http.createServer(app, {
+let server = http.createServer(app);
+
+/* {
     cors: {
         origin: "https://localhost"
     }
-});
+} */
 
 // enable local connections - Cors
 let options = {
@@ -26,7 +28,7 @@ let options = {
 
 
 
-app.use(cors(options));//INDICAMOS A EXPRESS QUE UTILICE LOS CORS.
+app.use(cors());//INDICAMOS A EXPRESS QUE UTILICE LOS CORS.
 
 const publicPath = path.resolve(__dirname, '../public');
 const port = process.env.PORT || 3000;
