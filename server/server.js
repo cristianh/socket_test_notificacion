@@ -15,13 +15,13 @@ app.use(function(req, res, next) {
 
 let server = http.createServer(app, {
     cors: {
-        origin: "localhost"
+        origin: "https://localhost"
     }
 });
 
 // enable local connections - Cors
 let options = {
-    "origin": "localhost"
+    "origin": "https://localhost"
 }
 
 
