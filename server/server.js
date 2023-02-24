@@ -5,16 +5,12 @@ const cors = require('cors')
 const path = require('path');
 
 const app = express();
-let server = http.createServer(app);
+let server = http.createServer(app, {
+    cors: {
+        origin: "*"
+    }
+});
 
-// enable local connections - Cors
-let options = {
-    "origin": "https://localhost"
-}
-
-
-
-app.use(cors(options));//INDICAMOS A EXPRESS QUE UTILICE LOS CORS.
 
 const publicPath = path.resolve(__dirname, '../public');
 const port = process.env.PORT || 3000;
@@ -33,6 +29,6 @@ server.listen(port, (err) => {
 
     if (err) throw new Error(err);
 
-    console.log(`Servidor corriendo en puerto ${ port }`);
+    console.log(`Servidor corriendo en puerto ${port}`);
 
 });
